@@ -1,0 +1,140 @@
+# 开源导航网站
+## 功能列表
++ 网址导航
+  + 网站网址
+  + 目录分类
++ 文章seo
+  + 文章管理
+  + 标签管理
++ 合作伙伴
+  + 作者
+  + 友链
+  + 客户
++ 用户功能
+  + 注册
+  + 评论
+  + 收藏
+  + 点赞
++ 运营分析
+  + 广告配置
+  + ~~流量统计~~
+
+## 技术特点
++ 状态分离-支持高并发，快速响应
++ 动静分离-支持静态化，低延迟
++ SEO友好-后台渲染
++ 前后端分离-多客户端支持
++ 虚拟化-可扩展，多部署
+
+## 部署流程
++ 镜像部署
+  + docker部署
+  + k8s部署
++ 代码部署
+  + clone项目
+  + maven打包
+  + 镜像构建
+  + 镜像部署
+
+## 技术栈
++ springboot
++ thymeleaf
++ jpa-hibernate
++ mysql
++ redis
++ vue/jquery
++ docker/k8s
+
+## 技术设计
+### 物品
++ 站点-Site
++ 文章-Article
++ 友链-Link
++ 合作伙伴-Partner
++ 单页-Page
+
+### 聚合
++ 标签-Tag
++ 分类-Category
++ 作者-Author
++ ~~信息流-Feed~~
+
+### 用户
++ 收藏-collect
++ 点赞-like
++ ~~订阅-subscribe~~
+
+### 基础
++ 账号-sso
++ ~~表单-form~~
++ ~~支付-payment~~
+
+### 客户端
++ pc/m
++ ~~小程序~~
+
+### 页面
+> 模版主题
++ SEO
+  + TDK
++ Navigation
+  + Logo
+  + Links
+  + Panel
+  + User
+  + Button
++ Menu
+    + Logo
+    + MenuTree
+    + MenuGroup
+    + MenuIcon
++ Header
+  + SearchBox
+  + MoneyBox
+  + TimeZoneBox
++ Advertise
+  + ImgAdvert
+  + Top-Bottom
++ Tips
+  + Top
+  + Search
+  + Mark
+  + Mode
++ Tab
+  + TabTree
+  + Card
+    + Mini
+    + Small
+    + Max
+  + Media
+    + Mini
+    + Small
+    + Max
++ List
+  + ..同上
++ Links
++ Footer
+  + BigLogo
+  + contact
+  + description
+  + copyright
++ BreadCrumb
++ Content
+  + TitleBox
+  + GroupBox
+  + Html
+  + Tags
+  + Statement
++ Pager
++ Comment
++ Author
++ Recommend
+  + Type
+  + Position
+
++ ~~自定义CMS~~
+
+### 运营
++ ~~埋点跟踪-spm-utm~~
++ 广告投放-advert-fetch
++ ~~流量线索-view-lead~~
