@@ -8,7 +8,7 @@
         <version>2.6.4</version>
         <relativePath/>
     </parent>
-    <groupId>me.pcaz</groupId>
+    <groupId>open-vertical-media</groupId>
     <artifactId>open-nav</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>open-nav</name>
@@ -23,7 +23,50 @@
         <module>nav</module>
         <module>sso</module>
         <module>user</module>
+        <module>intention</module>
+        <module>auth</module>
     </modules>
+    <dependencies>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.15</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.26</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>open-vertical-media.open-nav</groupId>
+            <artifactId>common</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>5.8.16</version>
+        </dependency>
+    </dependencies>
     <build>
         <plugins>
             <plugin>

@@ -9,10 +9,17 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
     <groupId>open-vertical-media.open-nav</groupId>
-    <artifactId>nav</artifactId>
+    <artifactId>auth</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>nav</name>
-    <description>nav</description>
+    <name>auth</name>
+    <description>intention</description>
+    <dependencies>
+        <dependency>
+            <groupId>com.auth0</groupId>
+            <artifactId>java-jwt</artifactId>
+            <version>3.4.0</version>
+        </dependency>
+    </dependencies>
 
     <build>
         <plugins>
