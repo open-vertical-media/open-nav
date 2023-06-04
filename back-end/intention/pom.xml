@@ -13,6 +13,12 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>intention</name>
     <description>intention</description>
+    <dependencies>
+        <dependency>
+            <groupId>jakarta.validation</groupId>
+            <artifactId>jakarta.validation-api</artifactId>
+        </dependency>
+    </dependencies>
 
     <build>
         <plugins>
