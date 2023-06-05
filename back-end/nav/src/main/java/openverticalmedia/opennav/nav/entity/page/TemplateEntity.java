@@ -7,6 +7,8 @@ import lombok.Setter;
 import openverticalmedia.opennav.nav.entity.NavEntity;
 import openverticalmedia.opennav.nav.meta.SeoMeta;
 import openverticalmedia.opennav.nav.model.TemplateItem;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
@@ -15,8 +17,10 @@ import java.util.List;
 @Getter
 @Setter
 @Entity
+@Where(clause = "is_delete=0")
 @Table(name = "nav_page_template")
 @EqualsAndHashCode(callSuper = true)
+@SQLDelete(sql = "update nav_page_template set is_delete=1 where id = ?")
 public class TemplateEntity extends NavEntity {
     /**
      * SEO信息

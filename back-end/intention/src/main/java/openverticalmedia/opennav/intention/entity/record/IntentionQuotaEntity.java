@@ -10,16 +10,30 @@ import org.hibernate.annotations.Where;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+
 @Getter
 @Setter
 @Entity
 @Where(clause = "is_delete=0")
+@Table(name = "nav_intention_quota")
 @EqualsAndHashCode(callSuper = true)
-@Table(name = "nav_intention_partner")
-@SQLDelete(sql = "update nav_intention_partner set is_delete=1 where id = ?")
-public class IntentionPartnerEntity extends IntentionEntity {
+@SQLDelete(sql = "update nav_intention_quota set is_delete=1 where id = ?")
+public class IntentionQuotaEntity extends IntentionEntity {
     /**
-     * 名称
+     * 类型
+     * 充值/扣减
      */
-    private String name;
+    private String type;
+    /**
+     * 数量
+     */
+    private int number;
+    /**
+     *
+     */
+    private long partnerId;
+    /**
+     *
+     */
+    private long recordId;
 }

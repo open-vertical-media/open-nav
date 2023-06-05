@@ -12,9 +12,9 @@ import java.sql.Timestamp;
 
 @Getter
 @Setter
-@EqualsAndHashCode
-@MappedSuperclass
 @ToString
+@MappedSuperclass
+@EqualsAndHashCode
 public class SsoEntity {
     /**
      * 主键自增长

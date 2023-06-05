@@ -13,8 +13,8 @@ public class IntentionAjaxService {
     IntentionRecordRepository repository;
     public void post(IntentionData data){
         //TODO 手机号短信验证；短信人机验证；频率限制
-        //TODO 线索分配
         IntentionRecordEntity entity = IntentionMapper.dataToEntity(data);
         repository.save(entity);
+        //TODO 线索分配
     }
 }
