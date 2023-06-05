@@ -12,4 +12,10 @@ public class IntentionMapper {
         entity.setTelephone(data.getTelephone());
         return entity;
     }
+    public static IntentionRecordEntity dataToEntity(IntentionRecordEntity entity,IntentionData data){
+        entity.setMessage(data.getMessage());
+        entity.setName(data.getName());
+        entity.setTelephone(data.getTelephone());
+        return entity;
+    }
 }
