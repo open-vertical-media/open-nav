@@ -17,10 +17,13 @@ public class InterceptorRegister implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(admin)
+                .excludePathPatterns("/admin/auth/token")
                 .addPathPatterns("/admin/**");
         registry.addInterceptor(ajax)
+                .excludePathPatterns("/ajax/auth/token")
                 .addPathPatterns("/ajax/**");
         registry.addInterceptor(partner)
+                .excludePathPatterns("/partner/auth/token")
                 .addPathPatterns("/partner/**");
     }
 }
