@@ -1,6 +1,6 @@
 package openverticalmedia.opennav.intention.repository;
 
-import openverticalmedia.opennav.intention.entity.record.IntentionPartnerEntity;
+import openverticalmedia.opennav.intention.entity.IntentionPartnerEntity;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
