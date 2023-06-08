@@ -1,5 +1,7 @@
-package openverticalmedia.opennav.auth.config;
+package openverticalmedia.opennav.sdk;
 
+import openverticalmedia.opennav.sdk.config.SdkProperties;
+import openverticalmedia.opennav.sdk.config.SdkConfig;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Import;
 
@@ -10,7 +12,7 @@ import java.lang.annotation.Target;
 
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
-@EnableConfigurationProperties(AuthProperties.class)
-@Import(AuthAutoConfig.class)
-public @interface EnableAuth {
+@EnableConfigurationProperties(SdkProperties.class)
+@Import(SdkConfig.class)
+public @interface EnableOpenNavSdk {
 }

@@ -14,6 +14,7 @@ import org.springframework.web.servlet.HandlerInterceptor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.PrintWriter;
 import java.lang.reflect.Method;
 
 @Slf4j
@@ -23,7 +24,7 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
     private String salt;
 
     @Override
-    public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object object) throws Exception {
+    public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object object) throws Exception {
         if (object instanceof HandlerMethod) {
             HandlerMethod handlerMethod = (HandlerMethod) object;
             Method method = handlerMethod.getMethod();
@@ -31,9 +32,9 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
             if (method.isAnnotationPresent(PassToken.class)) {
                 return true;
             }
-            String token = httpServletRequest.getHeader("Authorization");
+            String token = request.getHeader("Authorization");
             if (StrUtil.isBlankOrUndefined(token)) {
-                log.info("错误的请求：{}", httpServletRequest.getRequestURI());
+                log.info("错误的请求：{}", request.getRequestURI());
                 throw new NotLoginException("凭证认证丢失");
             }
             token = token.replace("Bearer ", "")
@@ -43,8 +44,14 @@ public class AuthenticationInterceptor implements HandlerInterceptor {
             try {
                 jwtVerifier.verify(token);
             } catch (JWTVerificationException e) {
-                log.warn("错误的请求：{}, JWT：{}", httpServletRequest.getRequestURI(), token);
-                throw new NotLoginException("凭证认证错误");
+                log.warn("错误的请求：{}, JWT：{}", request.getRequestURI(), token);
+                response.setContentType("application/json; charset=utf-8");
+                response.setStatus(401);
+                PrintWriter writer = response.getWriter();
+                writer.print("凭证认证错误");
+                writer.close();
+                response.flushBuffer();
+                return false;
             }
             return true;
         }else{

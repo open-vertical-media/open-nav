@@ -1,10 +1,12 @@
 package openverticalmedia.opennav.main;
 
-import openverticalmedia.opennav.auth.config.EnableAuth;
+import openverticalmedia.opennav.auth.EnableOpenNavAuth;
+import openverticalmedia.opennav.sdk.EnableOpenNavSdk;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@EnableAuth
+@EnableOpenNavAuth
+@EnableOpenNavSdk
 @SpringBootApplication
 public class MainApplication {
 

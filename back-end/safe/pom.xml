@@ -9,16 +9,15 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
     <groupId>open-vertical-media.open-nav</groupId>
-    <artifactId>nav</artifactId>
+    <artifactId>safe</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>nav</name>
-    <description>nav</description>
+    <name>safe</name>
+    <description>safe</description>
     <dependencies>
         <dependency>
             <groupId>open-vertical-media.open-nav</groupId>
-            <artifactId>common</artifactId>
+            <artifactId>sdk</artifactId>
             <version>0.0.1-SNAPSHOT</version>
-            <scope>compile</scope>
         </dependency>
     </dependencies>
 
