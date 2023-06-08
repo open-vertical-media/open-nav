@@ -1,7 +1,7 @@
 package openverticalmedia.opennav.intention.mapper.partner;
 
-import openverticalmedia.opennav.intention.dto.partner.PartnerIntentionQuotaDto;
 import openverticalmedia.opennav.intention.entity.IntentionQuotaEntity;
+import openverticalmedia.opennav.intention.dto.partner.PartnerIntentionQuotaDto;
 
 public class PartnerIntentionQuotaMapper {
     public static PartnerIntentionQuotaDto entityToDto(IntentionQuotaEntity entity){

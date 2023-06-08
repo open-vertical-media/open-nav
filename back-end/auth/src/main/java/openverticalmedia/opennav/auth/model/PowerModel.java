@@ -4,5 +4,6 @@ import lombok.Data;
 
 @Data
 public class PowerModel {
-    private String range;
+    private String type;
+    private int level;
 }

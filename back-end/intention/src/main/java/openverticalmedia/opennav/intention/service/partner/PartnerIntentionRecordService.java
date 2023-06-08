@@ -1,12 +1,11 @@
 package openverticalmedia.opennav.intention.service.partner;
 
-import openverticalmedia.opennav.intention.dto.partner.PartnerIntentionRecordDto;
-import openverticalmedia.opennav.intention.entity.IntentionEntity;
-import openverticalmedia.opennav.intention.entity.IntentionRecordEntity;
 import openverticalmedia.opennav.intention.mapper.partner.PartnerIntentionRecordMapper;
 import openverticalmedia.opennav.intention.repository.IntentionRecordRepository;
-import openverticalmedia.opennav.model.ManagerModel;
-import openverticalmedia.opennav.model.Pager;
+import openverticalmedia.opennav.common.model.ManagerModel;
+import openverticalmedia.opennav.common.model.Pager;
+import openverticalmedia.opennav.intention.dto.partner.PartnerIntentionRecordDto;
+import openverticalmedia.opennav.intention.entity.IntentionRecordEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;

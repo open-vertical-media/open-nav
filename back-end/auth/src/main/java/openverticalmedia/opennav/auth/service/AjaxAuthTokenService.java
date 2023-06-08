@@ -5,12 +5,13 @@ import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.util.NumberUtil;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
-import openverticalmedia.opennav.auth.config.AuthProperties;
 import openverticalmedia.opennav.auth.dto.TokenData;
 import openverticalmedia.opennav.auth.dto.TokenDto;
 import openverticalmedia.opennav.auth.entity.AccountEntity;
+import openverticalmedia.opennav.auth.config.AuthProperties;
 import openverticalmedia.opennav.auth.model.PowerModel;
 import openverticalmedia.opennav.auth.repository.AccountRepository;
+import openverticalmedia.opennav.common.exception.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,7 +29,7 @@ public class AjaxAuthTokenService {
         if(userOptional.isPresent()){
             AccountEntity account = userOptional.get();
             Optional<PowerModel> partnerOptional = account.getPowers().stream()
-                    .filter(p -> p.getRange().equals("ajax"))
+                    .filter(p -> p.getType().equals("ajax"))
                     .findFirst();
             if (partnerOptional.isPresent()) {
                 String accessToken = JWT.create()
@@ -40,6 +41,6 @@ public class AjaxAuthTokenService {
                 return tokenDto;
             }
         }
-        return null;
+        throw new NotFoundException("账号或密码错误");
     }
 }

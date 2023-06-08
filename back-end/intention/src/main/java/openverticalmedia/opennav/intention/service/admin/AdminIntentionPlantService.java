@@ -1,11 +1,12 @@
 package openverticalmedia.opennav.intention.service.admin;
 
+import openverticalmedia.opennav.intention.repository.IntentionPlantRepository;
+import openverticalmedia.opennav.common.exception.NotFoundException;
 import openverticalmedia.opennav.intention.dto.admin.AdminIntentionPlantData;
 import openverticalmedia.opennav.intention.dto.admin.AdminIntentionPlantDto;
 import openverticalmedia.opennav.intention.entity.IntentionPlantEntity;
 import openverticalmedia.opennav.intention.mapper.admin.AdminIntentionPlantMapper;
-import openverticalmedia.opennav.intention.repository.IntentionPlantRepository;
-import openverticalmedia.opennav.model.Pager;
+import openverticalmedia.opennav.common.model.Pager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -38,7 +39,7 @@ public class AdminIntentionPlantService {
             IntentionPlantEntity entity = entityOptional.get();
             return AdminIntentionPlantMapper.entityToDto(entity);
         }
-        return null;
+        throw new NotFoundException("找不到该计划："+id);
     }
 
     public long post(AdminIntentionPlantData data) {
@@ -55,7 +56,7 @@ public class AdminIntentionPlantService {
             repository.save(entity);
             return true;
         }
-        return false;
+        throw new NotFoundException("找不到该计划："+id);
     }
 
     public void delete(long id) {

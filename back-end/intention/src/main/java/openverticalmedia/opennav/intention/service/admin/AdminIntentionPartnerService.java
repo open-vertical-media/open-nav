@@ -1,11 +1,12 @@
 package openverticalmedia.opennav.intention.service.admin;
 
+import openverticalmedia.opennav.intention.mapper.admin.AdminIntentionPartnerMapper;
+import openverticalmedia.opennav.intention.repository.IntentionPartnerRepository;
+import openverticalmedia.opennav.common.exception.NotFoundException;
 import openverticalmedia.opennav.intention.dto.admin.AdminIntentionPartnerData;
 import openverticalmedia.opennav.intention.dto.admin.AdminIntentionPartnerDto;
 import openverticalmedia.opennav.intention.entity.IntentionPartnerEntity;
-import openverticalmedia.opennav.intention.mapper.admin.AdminIntentionPartnerMapper;
-import openverticalmedia.opennav.intention.repository.IntentionPartnerRepository;
-import openverticalmedia.opennav.model.Pager;
+import openverticalmedia.opennav.common.model.Pager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -35,7 +36,7 @@ public class AdminIntentionPartnerService {
             IntentionPartnerEntity entity = entityOptional.get();
             return AdminIntentionPartnerMapper.entityToDto(entity);
         }
-        return null;
+        throw new NotFoundException("找不到该伙伴:"+id);
     }
     public long post(AdminIntentionPartnerData data){
         //TODO 校验名称是否重复

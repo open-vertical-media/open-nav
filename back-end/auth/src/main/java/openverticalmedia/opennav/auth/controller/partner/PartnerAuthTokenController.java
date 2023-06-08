@@ -1,9 +1,9 @@
 package openverticalmedia.opennav.auth.controller.partner;
 
-import openverticalmedia.opennav.annotation.PartnerController;
 import openverticalmedia.opennav.auth.dto.TokenData;
 import openverticalmedia.opennav.auth.dto.TokenDto;
 import openverticalmedia.opennav.auth.service.PartnerAuthTokenService;
+import openverticalmedia.opennav.common.annotation.PartnerController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

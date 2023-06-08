@@ -7,8 +7,8 @@ import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.exceptions.JWTVerificationException;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
-import openverticalmedia.opennav.annotation.PassToken;
-import openverticalmedia.opennav.exception.NotLoginException;
+import openverticalmedia.opennav.common.annotation.PassToken;
+import openverticalmedia.opennav.common.exception.NotLoginException;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 

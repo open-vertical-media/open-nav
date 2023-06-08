@@ -1,10 +1,10 @@
 package openverticalmedia.opennav.intention.controller.admin;
 
-import openverticalmedia.opennav.annotation.AdminController;
+import openverticalmedia.opennav.common.annotation.AdminController;
 import openverticalmedia.opennav.intention.dto.admin.AdminIntentionPartnerData;
 import openverticalmedia.opennav.intention.dto.admin.AdminIntentionPartnerDto;
 import openverticalmedia.opennav.intention.service.admin.AdminIntentionPartnerService;
-import openverticalmedia.opennav.model.Pager;
+import openverticalmedia.opennav.common.model.Pager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

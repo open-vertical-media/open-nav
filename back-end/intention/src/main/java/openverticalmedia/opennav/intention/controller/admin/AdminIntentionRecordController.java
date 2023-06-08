@@ -1,9 +1,9 @@
 package openverticalmedia.opennav.intention.controller.admin;
 
-import openverticalmedia.opennav.annotation.AdminController;
+import openverticalmedia.opennav.common.annotation.AdminController;
 import openverticalmedia.opennav.intention.dto.admin.AdminIntentionRecordDto;
 import openverticalmedia.opennav.intention.service.admin.AdminIntentionRecordService;
-import openverticalmedia.opennav.model.Pager;
+import openverticalmedia.opennav.common.model.Pager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;

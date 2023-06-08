@@ -1,10 +1,11 @@
 package openverticalmedia.opennav.intention.service.partner;
 
-import openverticalmedia.opennav.intention.dto.partner.PartnerIntentionPartnerDto;
+import openverticalmedia.opennav.common.exception.NotFoundException;
 import openverticalmedia.opennav.intention.entity.IntentionPartnerEntity;
-import openverticalmedia.opennav.intention.mapper.partner.PartnerIntentionPartnerMapper;
 import openverticalmedia.opennav.intention.repository.IntentionPartnerRepository;
-import openverticalmedia.opennav.model.ManagerModel;
+import openverticalmedia.opennav.common.model.ManagerModel;
+import openverticalmedia.opennav.intention.dto.partner.PartnerIntentionPartnerDto;
+import openverticalmedia.opennav.intention.mapper.partner.PartnerIntentionPartnerMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,9 +19,8 @@ public class PartnerIntentionPartnerService {
         Optional<IntentionPartnerEntity> partnerOptional = repository.findById(manager.getId());
         if(partnerOptional.isPresent()){
             IntentionPartnerEntity entity = partnerOptional.get();
-            PartnerIntentionPartnerDto result = PartnerIntentionPartnerMapper.entityToDto(entity);
-            return result;
+            return PartnerIntentionPartnerMapper.entityToDto(entity);
         }
-        return null;
+        throw new NotFoundException("找不到该伙伴："+manager.getId());
     }
 }

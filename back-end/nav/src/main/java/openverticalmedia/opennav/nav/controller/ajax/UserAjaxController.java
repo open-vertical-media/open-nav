@@ -1,6 +1,6 @@
 package openverticalmedia.opennav.nav.controller.ajax;
 
-import openverticalmedia.opennav.annotation.AjaxController;
+import openverticalmedia.opennav.common.annotation.AjaxController;
 
 @AjaxController("ajax")
 public class UserAjaxController {

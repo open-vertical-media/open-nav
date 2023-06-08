@@ -1,6 +1,6 @@
 package openverticalmedia.opennav.auth.controller.ajax;
 
-import openverticalmedia.opennav.annotation.AjaxController;
+import openverticalmedia.opennav.common.annotation.AjaxController;
 import openverticalmedia.opennav.auth.dto.TokenData;
 import openverticalmedia.opennav.auth.dto.TokenDto;
 import openverticalmedia.opennav.auth.service.AjaxAuthTokenService;

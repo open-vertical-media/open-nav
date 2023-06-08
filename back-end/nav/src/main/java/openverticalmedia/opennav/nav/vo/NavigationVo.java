@@ -17,6 +17,6 @@ public class NavigationVo {
     /**
      * 按钮链接集合
      */
-    private List<openverticalmedia.opennav.nav.vo.LinkVo> links;
+    private List<LinkVo> links;
 
 }

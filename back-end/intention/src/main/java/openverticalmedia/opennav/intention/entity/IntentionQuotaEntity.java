@@ -3,7 +3,6 @@ package openverticalmedia.opennav.intention.entity;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
-import openverticalmedia.opennav.intention.entity.IntentionEntity;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
 
