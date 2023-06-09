@@ -1,8 +1,7 @@
-package openverticalmedia.opennav.sdk;
+package openverticalmedia.opennav.safe;
 
-import openverticalmedia.opennav.sdk.config.SdkConfig;
-import openverticalmedia.opennav.sdk.config.SdkProperties;
-import openverticalmedia.opennav.sdk.config.SdkClientConfig;
+import openverticalmedia.opennav.safe.config.SafeConfig;
+import openverticalmedia.opennav.safe.config.SafeProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Import;
 
@@ -13,7 +12,7 @@ import java.lang.annotation.Target;
 
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
-@EnableConfigurationProperties(SdkProperties.class)
-@Import({SdkClientConfig.class, SdkConfig.class})
-public @interface EnableOpenNavSdk {
+@EnableConfigurationProperties(SafeProperties.class)
+@Import({SafeConfig.class})
+public @interface EnableOpenNavSafe {
 }

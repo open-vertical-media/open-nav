@@ -1,35 +1,29 @@
 package openverticalmedia.opennav.sdk.config;
 
 import com.aliyun.dysmsapi20170525.Client;
-import com.aliyun.teaopenapi.models.Config;
-import com.aliyuncs.DefaultAcsClient;
 import com.aliyuncs.IAcsClient;
-import com.aliyuncs.profile.DefaultProfile;
-import com.aliyuncs.profile.IClientProfile;
-import org.springframework.beans.factory.annotation.Autowired;
+import openverticalmedia.opennav.sdk.code.CodeTemplate;
+import openverticalmedia.opennav.sdk.sms.SmsTemplate;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.redis.connection.RedisConnectionFactory;
+import org.springframework.data.redis.core.StringRedisTemplate;
 
 @Configuration
 public class SdkConfig {
-    @Autowired
-    SdkProperties properties;
+    @Bean
+    public CodeTemplate codeTemplate(IAcsClient acsClient) {
+        return new CodeTemplate(acsClient);
+    }
 
     @Bean
-    public Client aliyunSmsClient() throws Exception {
-        Config config = new Config()
-                .setAccessKeyId(properties.getSmsAccessKeyId())
-                .setAccessKeySecret(properties.getSmsAccessKeyId())
-                .setEndpoint(properties.getSmsEndpoint());
-        return new Client(config);
+    public SmsTemplate smsTemplate(Client client, SdkProperties properties) {
+        return new SmsTemplate(client, properties);
     }
-    @Bean
-    public IAcsClient aliyunCodeClient(){
-        IClientProfile profile= DefaultProfile.getProfile(
-                properties.getCodeRegionId(),
-                properties.getCodeAccessKeyId(),
-                properties.getCodeAccessKeySecret()
-        );
-        return new DefaultAcsClient(profile);
-    }
+//    @Bean
+//    public StringRedisTemplate stringRedisTemplate(RedisConnectionFactory redisConnectionFactory){
+//        StringRedisTemplate stringRedisTemplate=new StringRedisTemplate();
+//        stringRedisTemplate.setConnectionFactory(redisConnectionFactory);
+//        return stringRedisTemplate;
+//    }
 }

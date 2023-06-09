@@ -12,12 +12,13 @@ import org.springframework.stereotype.Component;
 import java.util.Map;
 
 @Slf4j
-@Component
 public class SmsTemplate {
-    @Autowired
-    Client client;
-    @Autowired
-    SdkProperties properties;
+    final Client client;
+    final SdkProperties properties;
+    public SmsTemplate(Client client,SdkProperties properties){
+        this.client=client;
+        this.properties=properties;
+    }
 
     public void send(String telephone, String templateCode, Map<String, String> params) {
         SendSmsRequest request = new SendSmsRequest();

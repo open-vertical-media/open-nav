@@ -5,14 +5,13 @@ import com.aliyuncs.afs.model.v20180112.AnalyzeNvcRequest;
 import com.aliyuncs.afs.model.v20180112.AnalyzeNvcResponse;
 import com.aliyuncs.exceptions.ClientException;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 
 @Slf4j
-@Component
 public class CodeTemplate {
-    @Autowired
-    IAcsClient client;
+    final IAcsClient client;
+    public CodeTemplate(IAcsClient client){
+        this.client=client;
+    }
 
     public String check(String data) {
         AnalyzeNvcRequest request = new AnalyzeNvcRequest();
