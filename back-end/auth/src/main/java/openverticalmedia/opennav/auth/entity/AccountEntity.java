@@ -3,10 +3,12 @@ package openverticalmedia.opennav.auth.entity;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
+import openverticalmedia.opennav.auth.convert.ListPowerModelConvert;
 import openverticalmedia.opennav.auth.model.PowerModel;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
 
+import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 import java.util.List;
@@ -21,6 +23,6 @@ import java.util.List;
 public class AccountEntity extends AuthEntity {
     private String name;
     private String password;
-    //TODO Convert
+    @Convert(converter = ListPowerModelConvert.class)
     private List<PowerModel> powers;
 }

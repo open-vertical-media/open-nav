@@ -8,6 +8,11 @@ import javax.validation.constraints.NotBlank;
 @Data
 public class AjaxIntentionRecordData {
     /**
+     * 路径
+     */
+    @NotBlank
+    private String path;
+    /**
      * 名称
      */
     @NotBlank

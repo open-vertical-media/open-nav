@@ -7,6 +7,7 @@ import openverticalmedia.opennav.intention.dto.admin.AdminIntentionRecordDto;
 import openverticalmedia.opennav.intention.entity.IntentionRecordEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -17,9 +18,9 @@ public class AdminIntentionRecordService {
     @Autowired
     IntentionRecordRepository repository;
 
-    public Pager<AdminIntentionRecordDto> query(Long partnerId, String name, String telephone){
+    public Pager<AdminIntentionRecordDto> query(Long partnerId, String name, String telephone,int page,int size){
         Pager<AdminIntentionRecordDto> result=new Pager<>();
-        Page<IntentionRecordEntity> entityPage = repository.query(partnerId, name, telephone);
+        Page<IntentionRecordEntity> entityPage = repository.query(partnerId, name, telephone, PageRequest.of(page-1,size));
         result.setCount(entityPage.getTotalElements());
         List<AdminIntentionRecordDto> list = entityPage.stream()
                 .map(AdminIntentionRecordMapper::entityToDto)

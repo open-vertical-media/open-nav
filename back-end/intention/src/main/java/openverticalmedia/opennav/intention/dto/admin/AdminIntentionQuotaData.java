@@ -17,8 +17,4 @@ public class AdminIntentionQuotaData {
      *
      */
     private long partnerId;
-    /**
-     *
-     */
-    private long recordId;
 }

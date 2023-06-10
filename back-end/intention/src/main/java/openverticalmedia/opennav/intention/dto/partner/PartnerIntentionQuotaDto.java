@@ -14,12 +14,4 @@ public class PartnerIntentionQuotaDto {
      * 数量
      */
     private int number;
-    /**
-     *
-     */
-    private long partnerId;
-    /**
-     *
-     */
-    private long recordId;
 }

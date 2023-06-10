@@ -31,8 +31,4 @@ public class IntentionQuotaEntity extends IntentionEntity {
      *
      */
     private long partnerId;
-    /**
-     *
-     */
-    private long recordId;
 }

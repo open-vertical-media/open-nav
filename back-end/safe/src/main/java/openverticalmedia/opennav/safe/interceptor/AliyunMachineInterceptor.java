@@ -5,17 +5,16 @@ import cn.hutool.core.util.StrUtil;
 import openverticalmedia.opennav.sdk.code.CodeTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.web.servlet.HandlerInterceptor;
-import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.PrintWriter;
 
-public class MachineInterceptor implements HandlerInterceptor {
+public class AliyunMachineInterceptor implements HandlerInterceptor {
     final CodeTemplate codeTemplate;
     final StringRedisTemplate template;
 
-    public MachineInterceptor(CodeTemplate codeTemplate,StringRedisTemplate template) {
+    public AliyunMachineInterceptor(CodeTemplate codeTemplate, StringRedisTemplate template) {
         this.codeTemplate = codeTemplate;
         this.template=template;
     }

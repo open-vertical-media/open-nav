@@ -3,7 +3,6 @@ package openverticalmedia.opennav.intention.service.ajax;
 import openverticalmedia.opennav.intention.dto.ajax.AjaxIntentionRecordData;
 import openverticalmedia.opennav.intention.repository.IntentionRecordRepository;
 import openverticalmedia.opennav.intention.entity.IntentionRecordEntity;
-import openverticalmedia.opennav.intention.manager.IntentionRecordChecker;
 import openverticalmedia.opennav.intention.manager.IntentionRecordHandler;
 import openverticalmedia.opennav.intention.mapper.ajax.AjaxIntentionRecordMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,12 +13,9 @@ public class AjaxIntentionRecordService {
     @Autowired
     IntentionRecordRepository repository;
     @Autowired
-    IntentionRecordChecker checker;
-    @Autowired
     IntentionRecordHandler handler;
 
     public long post(AjaxIntentionRecordData data) {
-        checker.checkRecord(data);
         IntentionRecordEntity entity = AjaxIntentionRecordMapper.dataToEntity(data);
         entity = repository.save(entity);
         handler.addRecord(entity);

@@ -15,8 +15,8 @@ import javax.persistence.Table;
 @Setter
 @Entity
 @Where(clause = "is_delete=0")
-@Table(name = "nav_item_item")
+@Table(name = "nav_item_link")
 @EqualsAndHashCode(callSuper = true)
-@SQLDelete(sql = "update nav_item_item set is_delete=1 where id = ?")
+@SQLDelete(sql = "update nav_item_link set is_delete=1 where id = ?")
 public class LinkEntity extends NavEntity {
 }

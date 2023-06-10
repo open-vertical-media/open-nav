@@ -16,8 +16,9 @@ public class PartnerIntentionQuotaController {
     PartnerIntentionQuotaService service;
     @GetMapping
     public Pager<PartnerIntentionQuotaDto> query(@ModelAttribute("managerModel")ManagerModel manager,
+                                                 @RequestParam(required = false)String type,
                                                  @RequestParam(required = false,defaultValue = "1")int page,
                                                  @RequestParam(required = false,defaultValue = "10")int size){
-        return service.query(manager,page,size);
+        return service.query(manager,type,page,size);
     }
 }

@@ -18,6 +18,10 @@ import javax.persistence.Table;
 @SQLDelete(sql = "update nav_intention_record set is_delete=1 where id = ?")
 public class IntentionRecordEntity extends IntentionEntity {
     /**
+     * 路径
+     */
+    private String path;
+    /**
      * 名称
      */
     private String name;
@@ -32,7 +36,7 @@ public class IntentionRecordEntity extends IntentionEntity {
     /**
      * 状态
      */
-    private String status;
+    private String status="CREATED";
     /**
      *
      */

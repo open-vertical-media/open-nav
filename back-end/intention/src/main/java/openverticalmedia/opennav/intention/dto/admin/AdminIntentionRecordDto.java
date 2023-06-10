@@ -9,6 +9,10 @@ public class AdminIntentionRecordDto {
      */
     private String name;
     /**
+     * 路径
+     */
+    private String path;
+    /**
      * 手机号
      */
     private String telephone;

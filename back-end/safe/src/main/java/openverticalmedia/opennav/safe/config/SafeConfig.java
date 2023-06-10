@@ -1,7 +1,7 @@
 package openverticalmedia.opennav.safe.config;
 
-import openverticalmedia.opennav.safe.interceptor.MachineInterceptor;
-import openverticalmedia.opennav.safe.interceptor.TelephoneInterceptor;
+import openverticalmedia.opennav.safe.interceptor.AliyunMachineInterceptor;
+import openverticalmedia.opennav.safe.interceptor.AliyunTelephoneInterceptor;
 import openverticalmedia.opennav.sdk.EnableOpenNavSdk;
 import openverticalmedia.opennav.sdk.code.CodeTemplate;
 import org.springframework.context.annotation.Bean;
@@ -13,12 +13,12 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 public class SafeConfig {
 
     @Bean
-    public MachineInterceptor machineInterceptor(CodeTemplate codeTemplate,
-                                                 StringRedisTemplate redisTemplate){
-        return new MachineInterceptor(codeTemplate,redisTemplate);
+    public AliyunMachineInterceptor machineInterceptor(CodeTemplate codeTemplate,
+                                                       StringRedisTemplate redisTemplate){
+        return new AliyunMachineInterceptor(codeTemplate,redisTemplate);
     }
     @Bean
-    public TelephoneInterceptor telephoneInterceptor(StringRedisTemplate redisTemplate){
-        return new TelephoneInterceptor(redisTemplate);
+    public AliyunTelephoneInterceptor telephoneInterceptor(StringRedisTemplate redisTemplate){
+        return new AliyunTelephoneInterceptor(redisTemplate);
     }
 }

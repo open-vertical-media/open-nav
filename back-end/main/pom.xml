@@ -17,6 +17,11 @@
     <dependencies>
         <dependency>
             <groupId>open-vertical-media.open-nav</groupId>
+            <artifactId>intention</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>open-vertical-media.open-nav</groupId>
             <artifactId>nav</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
@@ -47,6 +52,11 @@
             <groupId>open-vertical-media.open-nav</groupId>
             <artifactId>safe</artifactId>
             <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+            <version>5.2.1</version>
         </dependency>
     </dependencies>
     <build>

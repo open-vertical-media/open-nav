@@ -25,4 +25,8 @@ public class IntentionPlantEntity extends IntentionEntity {
      *
      */
     private long partnerId;
+    /**
+     *
+     */
+    private float sortIndex;
 }
