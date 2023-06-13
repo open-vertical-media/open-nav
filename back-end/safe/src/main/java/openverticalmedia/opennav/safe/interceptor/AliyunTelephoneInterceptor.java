@@ -34,7 +34,7 @@ public class AliyunTelephoneInterceptor implements HandlerInterceptor {
                 return true;
             }
             //次数限制
-            String numberString = template.opsForValue().get("code:" + token);
+            String numberString = template.opsForValue().get("number:" + token);
             if (StrUtil.isBlank(numberString)) {
                 numberString = "0";
             }
@@ -44,6 +44,8 @@ public class AliyunTelephoneInterceptor implements HandlerInterceptor {
                 template.opsForValue().getAndDelete("code:" + token);
                 template.opsForValue().getAndDelete("tel:" + token);
                 errorMsg = "错误次数过多，请重新发送";
+            } else {
+                template.opsForValue().set("number:" + token, NumberUtil.toStr(number));
             }
         }
 //            }

@@ -1,6 +1,7 @@
 package openverticalmedia.opennav.main.interceptor;
 
 import openverticalmedia.opennav.auth.interceptor.AuthenticationInterceptor;
+import openverticalmedia.opennav.safe.interceptor.AliyunTelephoneInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
@@ -16,8 +17,8 @@ public class InterceptorRegister implements WebMvcConfigurer {
     AuthenticationInterceptor partner;
 //    @Autowired
 //    AliyunMachineInterceptor aliyunMachineInterceptor;
-//    @Autowired
-//    AliyunTelephoneInterceptor aliyunTelephoneInterceptor;
+    @Autowired
+    AliyunTelephoneInterceptor aliyunTelephoneInterceptor;
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(admin)
@@ -34,7 +35,7 @@ public class InterceptorRegister implements WebMvcConfigurer {
 
 //        registry.addInterceptor(aliyunMachineInterceptor)
 //                .addPathPatterns("/ajax/safe/sms");
-//        registry.addInterceptor(aliyunTelephoneInterceptor)
-//                .addPathPatterns("/ajax/intention/record");
+        registry.addInterceptor(aliyunTelephoneInterceptor)
+                .addPathPatterns("/ajax/intention/record");
     }
 }

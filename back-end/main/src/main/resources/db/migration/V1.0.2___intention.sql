@@ -35,7 +35,7 @@ create table `nav_intention_record`
     `gmt_create`   timestamp    not null default current_timestamp,
     `gmt_modified` timestamp null,
     `is_delete`    int(1) default 0 not null,
-    `path`         varchar(10)  not null,
+    `path`         varchar(100)  not null,
     `name`         varchar(11)  not null,
     `telephone`    varchar(18)  not null,
     `message`      varchar(200) not null,
