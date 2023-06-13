@@ -25,4 +25,8 @@ public class IntentionPartnerEntity extends IntentionEntity {
      * 剩余额度
      */
     private int quota;
+    /**
+     * 手机号
+     */
+    private String telephone;
 }
