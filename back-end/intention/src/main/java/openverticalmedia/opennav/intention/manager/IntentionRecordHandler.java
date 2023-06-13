@@ -46,7 +46,7 @@ public class IntentionRecordHandler {
             params.put("customer",record.getName());
             params.put("tel",record.getTelephone());
             params.put("server","");
-            smsTemplate.send(properties.getTelephone(), properties.getTemplateCode(),);
+//            smsTemplate.send(properties.getTelephone(), properties.getTemplateCode(),"");
         }
     }
 }

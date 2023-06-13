@@ -12,7 +12,7 @@
     <artifactId>auth</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>auth</name>
-    <description>intention</description>
+    <description>auth</description>
     <dependencies>
         <dependency>
             <groupId>com.auth0</groupId>

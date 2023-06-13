@@ -1,7 +1,6 @@
-package openverticalmedia.opennav.sdk;
+package openverticalmedia.opennav.config;
 
-import openverticalmedia.opennav.sdk.config.SdkClientConfig;
-import openverticalmedia.opennav.sdk.config.SdkConfig;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Import;
 
 import java.lang.annotation.ElementType;
@@ -11,6 +10,5 @@ import java.lang.annotation.Target;
 
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
-@Import({SdkClientConfig.class, SdkConfig.class})
-public @interface EnableOpenNavSdk {
+public @interface EnableOpenNavConfig {
 }

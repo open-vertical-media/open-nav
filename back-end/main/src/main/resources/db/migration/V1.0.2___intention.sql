@@ -5,6 +5,7 @@ create table `nav_intention_partner`
     `gmt_modified` timestamp null,
     `is_delete`    int(1) default 0 not null,
     `name`         varchar(25) not null,
+    `telephone`         varchar(25) not null,
     `quota`        int(8) default 0
 );
 create table `nav_intention_plant`

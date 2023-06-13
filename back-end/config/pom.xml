@@ -9,33 +9,24 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
     <groupId>open-vertical-media.open-nav</groupId>
-    <artifactId>sdk</artifactId>
+    <artifactId>config</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>sdk</name>
-    <description>sdk</description>
-
+    <name>config</name>
+    <description>config</description>
     <dependencies>
         <dependency>
-            <groupId>com.aliyun</groupId>
-            <artifactId>dysmsapi20170525</artifactId>
-            <version>2.0.23</version>
+            <groupId>com.auth0</groupId>
+            <artifactId>java-jwt</artifactId>
+            <version>3.4.0</version>
         </dependency>
         <dependency>
             <groupId>open-vertical-media.open-nav</groupId>
-            <artifactId>config</artifactId>
+            <artifactId>common</artifactId>
             <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.aliyun</groupId>
-            <artifactId>aliyun-java-sdk-core</artifactId>
-            <version>4.5.13</version>
-        </dependency>
-        <dependency>
-            <groupId>com.aliyun</groupId>
-            <artifactId>aliyun-java-sdk-afs</artifactId>
-            <version>1.0.1</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
+
 
     <build>
         <plugins>
