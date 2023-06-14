@@ -16,9 +16,8 @@ create table `nav_intention_plant`
     `is_delete`    int(1) default 0 not null,
     `path`         varchar(50) not null,
     `partner_id`   int(11) not null,
-    `sort_index`   float(5, 2
-)
-    );
+    `sort_index`   float(5, 2)
+);
 create table `nav_intention_quota`
 (
     `id`           int(11) primary key auto_increment,
@@ -36,6 +35,7 @@ create table `nav_intention_record`
     `gmt_modified` timestamp null,
     `is_delete`    int(1) default 0 not null,
     `path`         varchar(100)  not null,
+    `title`         varchar(150) null,
     `name`         varchar(11)  not null,
     `telephone`    varchar(18)  not null,
     `message`      varchar(200) not null,

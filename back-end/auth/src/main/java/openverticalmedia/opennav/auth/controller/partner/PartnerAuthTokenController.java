@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-@PartnerController("partner/auth")
+@PartnerController("partner/auth/token")
 public class PartnerAuthTokenController {
     @Autowired
     PartnerAuthTokenService service;

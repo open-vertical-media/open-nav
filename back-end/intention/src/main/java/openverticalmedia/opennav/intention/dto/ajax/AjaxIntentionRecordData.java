@@ -13,6 +13,10 @@ public class AjaxIntentionRecordData {
     @NotBlank
     private String path;
     /**
+     * 标题
+     */
+    private String title;
+    /**
      * 名称
      */
     @NotBlank

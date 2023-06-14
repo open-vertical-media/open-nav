@@ -10,6 +10,7 @@ public class AjaxIntentionRecordMapper {
         entity.setMessage(data.getMessage());
         entity.setName(data.getName());
         entity.setPath(data.getPath());
+        entity.setTitle(data.getTitle());
         entity.setTelephone(data.getTelephone());
         return entity;
     }

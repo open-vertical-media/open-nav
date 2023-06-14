@@ -22,6 +22,10 @@ public class IntentionRecordEntity extends IntentionEntity {
      */
     private String path;
     /**
+     * 标题
+     */
+    private String title;
+    /**
      * 名称
      */
     private String name;
