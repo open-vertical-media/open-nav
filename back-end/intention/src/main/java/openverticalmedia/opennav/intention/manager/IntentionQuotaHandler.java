@@ -13,11 +13,11 @@ public class IntentionQuotaHandler {
 
     @Async
     public void addQuota(IntentionQuotaEntity quota) {
-        repository.syncQuota(quota.getPartnerId(), quota.getNumber());
+        repository.syncQuota(quota.getPartner().getId(), quota.getNumber());
     }
 
     @Async
     public void deleteQuota(IntentionQuotaEntity quota) {
-        repository.syncQuota(quota.getPartnerId(), -quota.getNumber());
+        repository.syncQuota(quota.getPartner().getId(), -quota.getNumber());
     }
 }

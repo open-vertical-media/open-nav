@@ -24,7 +24,7 @@ public class AjaxAdvice {
     @ModelAttribute(name = "userModel")
     public UserModel managerModel(@RequestHeader(name = "Authorization", required = false) String jwt) throws LoginException {
         if (StrUtil.isNotBlank(jwt)) {
-            Algorithm algorithm = Algorithm.HMAC256(properties.getAdminSalt());
+            Algorithm algorithm = Algorithm.HMAC256(properties.getAjaxSalt());
             JWTVerifier verifier =  JWT.require(algorithm)
                     .build();
             try {

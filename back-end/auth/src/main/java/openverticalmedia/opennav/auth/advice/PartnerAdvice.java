@@ -24,7 +24,7 @@ public class PartnerAdvice {
     @ModelAttribute(name = "partnerModel")
     public PartnerModel managerModel(@RequestHeader(name = "Authorization", required = false) String jwt) throws LoginException {
         if (StrUtil.isNotBlank(jwt)) {
-            Algorithm algorithm = Algorithm.HMAC256(properties.getAdminSalt());
+            Algorithm algorithm = Algorithm.HMAC256(properties.getPartnerSalt());
             JWTVerifier verifier =  JWT.require(algorithm)
                     .build();
             try {

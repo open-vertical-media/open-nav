@@ -7,6 +7,8 @@ import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.Where;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
@@ -30,5 +32,7 @@ public class IntentionQuotaEntity extends IntentionEntity {
     /**
      *
      */
-    private long partnerId;
+    @ManyToOne
+    @JoinColumn(name = "partner_id")
+    private IntentionPartnerEntity partner;
 }

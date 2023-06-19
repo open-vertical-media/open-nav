@@ -1,6 +1,7 @@
 package openverticalmedia.opennav.intention.controller.partner;
 
 import openverticalmedia.opennav.common.annotation.PartnerController;
+import openverticalmedia.opennav.common.model.PartnerModel;
 import openverticalmedia.opennav.intention.dto.partner.PartnerIntentionRecordDto;
 import openverticalmedia.opennav.intention.service.partner.PartnerIntentionRecordService;
 import openverticalmedia.opennav.common.model.ManagerModel;
@@ -16,9 +17,9 @@ public class PartnerIntentionRecordController {
     PartnerIntentionRecordService service;
 
     @GetMapping
-    public Pager<PartnerIntentionRecordDto> query(@ModelAttribute("managerModel") ManagerModel manager,
+    public Pager<PartnerIntentionRecordDto> query(@ModelAttribute("partnerModel") PartnerModel partner,
                                                   @RequestParam(required = false, defaultValue = "1") int page,
                                                   @RequestParam(required = false, defaultValue = "10") int size) {
-        return service.query(manager,page, size);
+        return service.query(partner,page, size);
     }
 }

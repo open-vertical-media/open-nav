@@ -15,8 +15,12 @@ public class AdminIntentionQuotaDto {
      */
     private int number;
     /**
-     *
+     * 合作伙伴ID
      */
     private long partnerId;
+    /**
+     * 合作伙伴名称
+     */
+    private String partnerName;
 
 }

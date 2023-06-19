@@ -1,21 +1,20 @@
 package openverticalmedia.opennav.main.handler;
 
 
+import openverticalmedia.opennav.common.exception.LogicException;
 import openverticalmedia.opennav.common.exception.NotFoundException;
 import openverticalmedia.opennav.common.exception.NotLoginException;
 import openverticalmedia.opennav.common.model.MessageModel;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.ControllerAdvice;
-import org.springframework.web.bind.annotation.ExceptionHandler;
-import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.*;
 
 
-@ControllerAdvice
+@RestControllerAdvice
 public class ExceptionResponseHandler {
 
     @ExceptionHandler(NotLoginException.class)
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
-    public MessageModel notLogin(NotLoginException exception) {
+    public MessageModel notLoginException(NotLoginException exception) {
         MessageModel messageModel = new MessageModel();
         messageModel.setMessage(exception.getMessage());
         return messageModel;
@@ -23,7 +22,15 @@ public class ExceptionResponseHandler {
 
     @ExceptionHandler(NotFoundException.class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    public MessageModel notFound(NotFoundException exception) {
+    public MessageModel notFoundException(NotFoundException exception) {
+        MessageModel messageModel = new MessageModel();
+        messageModel.setMessage(exception.getMessage());
+        return messageModel;
+    }
+
+    @ExceptionHandler(LogicException.class)
+    @ResponseStatus(HttpStatus.UNPROCESSABLE_ENTITY)
+    public MessageModel logicException(LogicException exception) {
         MessageModel messageModel = new MessageModel();
         messageModel.setMessage(exception.getMessage());
         return messageModel;

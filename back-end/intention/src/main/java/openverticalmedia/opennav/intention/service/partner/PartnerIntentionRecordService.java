@@ -1,5 +1,6 @@
 package openverticalmedia.opennav.intention.service.partner;
 
+import openverticalmedia.opennav.common.model.PartnerModel;
 import openverticalmedia.opennav.intention.mapper.partner.PartnerIntentionRecordMapper;
 import openverticalmedia.opennav.intention.repository.IntentionRecordRepository;
 import openverticalmedia.opennav.common.model.ManagerModel;
@@ -19,8 +20,8 @@ public class PartnerIntentionRecordService {
     @Autowired
     IntentionRecordRepository repository;
 
-    public Pager<PartnerIntentionRecordDto> query(ManagerModel managerModel, int page, int size) {
-        Page<IntentionRecordEntity> entityPage = repository.findByPartnerId(managerModel.getId(), PageRequest.of(page - 1, size));
+    public Pager<PartnerIntentionRecordDto> query(PartnerModel partner, int page, int size) {
+        Page<IntentionRecordEntity> entityPage = repository.findByPartnerId(partner.getId(), PageRequest.of(page - 1, size));
         Pager<PartnerIntentionRecordDto> result = new Pager<>();
         result.setCount(entityPage.getTotalElements());
         List<PartnerIntentionRecordDto> list = entityPage.stream()

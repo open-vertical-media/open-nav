@@ -5,4 +5,5 @@ import lombok.Data;
 @Data
 public class AdminIntentionPartnerData {
     private String name;
+    private String telephone;
 }

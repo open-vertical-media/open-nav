@@ -1,5 +1,6 @@
 package openverticalmedia.opennav.intention.service.partner;
 
+import openverticalmedia.opennav.common.model.PartnerModel;
 import openverticalmedia.opennav.intention.dto.partner.PartnerIntentionRequestDto;
 import openverticalmedia.opennav.intention.manager.IntentionRequestHandler;
 import openverticalmedia.opennav.intention.repository.IntentionRequestRepository;
@@ -20,16 +21,15 @@ public class PartnerIntentionRequestService {
     @Autowired
     IntentionRequestHandler manager;
 
-    public long post(ManagerModel managerModel, PartnerIntentionRequestData data) {
+    public long post(PartnerModel partner, PartnerIntentionRequestData data) {
         IntentionRequestEntity entity = PartnerIntentionRequestMapper.dataToEntity(data);
-        entity.setPartnerId(managerModel.getId());
+        entity.setPartnerId(partner.getId());
         entity = repository.save(entity);
         manager.addRequest(entity);
         return entity.getId();
     }
-    public PartnerIntentionRequestDto get(long id){
-        //TODO 归属验证
-        Optional<IntentionRequestEntity> entityOptional = repository.findById(id);
+    public PartnerIntentionRequestDto get(PartnerModel partner,long id){
+        Optional<IntentionRequestEntity> entityOptional = repository.findByPartnerIdAndId(partner.getId(),id);
         if(entityOptional.isPresent()){
             IntentionRequestEntity entity = entityOptional.get();
             return PartnerIntentionRequestMapper.entityToDto(entity);

@@ -14,10 +14,12 @@ public class AdminIntentionPartnerMapper {
     public static IntentionPartnerEntity dataToEntity(AdminIntentionPartnerData data){
         IntentionPartnerEntity entity=new IntentionPartnerEntity();
         entity.setName(data.getName());
+        entity.setTelephone(data.getTelephone());
         return entity;
     }
     public static IntentionPartnerEntity dataToEntity(IntentionPartnerEntity entity, AdminIntentionPartnerData data){
         entity.setName(data.getName());
+        entity.setTelephone(data.getTelephone());
         return entity;
     }
 }

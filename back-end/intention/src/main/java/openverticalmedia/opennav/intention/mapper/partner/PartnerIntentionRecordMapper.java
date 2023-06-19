@@ -6,6 +6,7 @@ import openverticalmedia.opennav.intention.entity.IntentionRecordEntity;
 public class PartnerIntentionRecordMapper {
     public static PartnerIntentionRecordDto entityToDto(IntentionRecordEntity entity){
         PartnerIntentionRecordDto dto=new PartnerIntentionRecordDto();
+        dto.setTitle(entity.getTitle());
         dto.setName(entity.getName());
         dto.setPath(entity.getPath());
         dto.setStatus(entity.getStatus());
