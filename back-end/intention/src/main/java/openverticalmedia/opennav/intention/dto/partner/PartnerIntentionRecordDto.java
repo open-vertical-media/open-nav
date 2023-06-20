@@ -5,6 +5,10 @@ import lombok.Data;
 @Data
 public class PartnerIntentionRecordDto {
     /**
+     * ID
+     */
+    private long id;
+    /**
      * 路径
      */
     private String path;
