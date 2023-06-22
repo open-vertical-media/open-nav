@@ -60,11 +60,11 @@ public class IntentionRecordHandler {
                     params.put("server", "客户不存在-" + record.getPartnerId());
                 }
             } else {
-                params.put("server", record.getPath());
+                params.put("server", record.getPath().replace(".html",""));
             }
             List<String> tels = StrUtil.split(properties.getTelephone(), ",");
             for (String tel : tels) {
-                smsTemplate.send(tel, properties.getTemplateCode(), params);
+                smsTemplate.send(properties.getSign(), tel, properties.getTemplateCode(), params);
             }
         } catch (Exception ex) {
             log.error("Record处理错误", ex);

@@ -27,7 +27,7 @@ public class AjaxSafeSmsService {
         String code = RandomUtil.randomNumbers(6);
         Map<String, String> params = new HashMap<>();
         params.put("code", code);
-        smsTemplate.send(data.getTel(), properties.getSmsTemplateCode(), params);
+        smsTemplate.send(properties.getSmsSign(), data.getTel(), properties.getSmsTemplateCode(), params);
         String token = UUID.fastUUID().toString(true);
         //5分钟有效
         redisTemplate.opsForValue().set("code:" + token, code, 5, TimeUnit.MINUTES);

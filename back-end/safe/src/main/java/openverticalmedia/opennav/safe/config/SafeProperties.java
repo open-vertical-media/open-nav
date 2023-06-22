@@ -6,5 +6,6 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @Data
 @ConfigurationProperties("opennav.safe")
 public class SafeProperties {
+    private String smsSign;
     private String smsTemplateCode;
 }

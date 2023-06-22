@@ -8,5 +8,4 @@ public class SdkSmsProperties {
     private String smsAccessKeyId;
     private String smsAccessKeySecret;
     private String smsEndpoint;
-    private String smsSign;
 }

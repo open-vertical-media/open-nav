@@ -26,7 +26,7 @@ public class SdkClientConfig {
                 .setEndpoint(properties.getSmsEndpoint());
         return new Client(config);
     }
-    @Bean
+    @Bean()
     public IAcsClient aliyunCodeClient(){
         SdkCodeProperties properties = template.get("SDK_CODE", SdkCodeProperties.class);
         IClientProfile profile= DefaultProfile.getProfile(

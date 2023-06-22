@@ -25,7 +25,7 @@ public class IntentionRequestHandler {
             throw new LogicException("申请类型错误");
         }
         Optional<IntentionRecordEntity> recordOptional = recordRepository.findById(request.getRelationId());
-        if(recordOptional.isPresent()){
+        if(!recordOptional.isPresent()){
             throw new LogicException("找不到申请的资源");
         }
         IntentionRecordEntity record = recordOptional.get();
@@ -37,7 +37,8 @@ public class IntentionRequestHandler {
         if(partner.getQuota()<=0) {
             throw new LogicException("额度不足请及时充值");
         }
-        partnerRepository.syncQuota(request.getPartnerId(), -1);
+        partner.setQuota(partner.getQuota()-1);
+        partnerRepository.save(partner);
         record.setStatus("SUCCESS");
         recordRepository.save(record);
         return true;

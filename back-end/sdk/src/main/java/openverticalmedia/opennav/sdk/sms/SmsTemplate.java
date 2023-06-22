@@ -13,21 +13,23 @@ import java.util.Map;
 public class SmsTemplate {
     final Client client;
     final SdkSmsProperties properties;
-    public SmsTemplate(Client client,SdkSmsProperties properties){
-        this.client=client;
-        this.properties=properties;
+
+    public SmsTemplate(Client client, SdkSmsProperties properties) {
+        this.client = client;
+        this.properties = properties;
     }
 
-    public void send(String telephone, String templateCode, Map<String, String> params) {
+    public void send(String sign, String telephone, String templateCode, Map<String, String> params) {
         String paramString = JSONUtil.parse(params).toJSONString(0);
         SendSmsRequest request = new SendSmsRequest()
+                .setSignName(sign)
                 .setPhoneNumbers(telephone)
-                .setSignName(properties.getSmsSign())
                 .setTemplateCode(templateCode)
                 .setTemplateParam(paramString);
         try {
+            log.info("短信发送-request:{}", JSONUtil.toJsonStr(request));
             SendSmsResponse response = client.sendSms(request);
-            log.info("短信发送:{},{}", request, response);
+            log.info("短信发送-response:{}", JSONUtil.toJsonStr(response));
         } catch (Exception e) {
             log.error("短信发送失败", e);
         }

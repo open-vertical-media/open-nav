@@ -17,7 +17,7 @@ import javax.persistence.Table;
 @Where(clause = "is_delete=0")
 @EqualsAndHashCode(callSuper = true)
 @SQLDelete(sql = "update nav_config_property set is_delete=1 where id = ?")
-public class ConfigPropertityEntity extends ConfigEntity {
+public class ConfigPropertyEntity extends ConfigEntity {
     @Column(name = "property_key")
     private String key;
     @Column(name = "property_value")
