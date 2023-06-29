@@ -14,7 +14,7 @@ public class AdminIntentionPartnerController {
     AdminIntentionPartnerService service;
 
     @GetMapping
-    public Pager<AdminIntentionPartnerDto> query(@RequestParam(required = false, defaultValue = "null") String name,
+    public Pager<AdminIntentionPartnerDto> query(@RequestParam(required = false) String name,
                                                  @RequestParam(required = false, defaultValue = "10") int size,
                                                  @RequestParam(required = false, defaultValue = "1") int page) {
         return service.query(name, size, page);

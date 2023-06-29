@@ -23,6 +23,10 @@ public class AdminAuthAccountController {
     public AdminAuthAccountDto get(@PathVariable long id){
         return service.get(id);
     }
+    @GetMapping("{type}-{id}")
+    public AdminAuthAccountDto get(@PathVariable String type,long id){
+        return service.get(type,id);
+    }
     @PostMapping
     public long post(@RequestBody AdminAuthAccountData data){
         return service.post(data);

@@ -9,6 +9,7 @@ public class AdminIntentionPlantMapper {
         AdminIntentionPlantDto dto=new AdminIntentionPlantDto();
         dto.setPath(entity.getPath());
         dto.setPartnerId(entity.getPartnerId());
+        dto.setId(entity.getId());
         return dto;
     }
     public static IntentionPlantEntity dataToEntity(AdminIntentionPlantData data){

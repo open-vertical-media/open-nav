@@ -41,7 +41,16 @@ public class AdminAuthAccountService {
         throw new NotFoundException("找不到该账号："+id);
     }
 
+    public AdminAuthAccountDto get(String type,long id){
+        List<AccountEntity> entityList = repository.findAll();
+        Optional<AccountEntity> entityOptional = entityList.stream()
+                .filter(e -> e.getPowers().stream().anyMatch(p -> p.getType().equals(type) && p.getId() == id))
+                .findFirst();
+        return entityOptional.map(AdminAuthAccountMapper::entityToDto).orElse(null);
+    }
+
     public long post(AdminAuthAccountData data) {
+        //內存筛选
         AccountEntity entity = AdminAuthAccountMapper.dataToEntity(data);
         entity = repository.save(entity);
         return entity.getId();

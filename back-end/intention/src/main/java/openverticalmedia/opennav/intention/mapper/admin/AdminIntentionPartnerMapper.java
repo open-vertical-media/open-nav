@@ -9,6 +9,7 @@ public class AdminIntentionPartnerMapper {
         AdminIntentionPartnerDto dto=new AdminIntentionPartnerDto();
         dto.setId(entity.getId());
         dto.setName(entity.getName());
+        dto.setTelephone(entity.getTelephone());
         return dto;
     }
     public static IntentionPartnerEntity dataToEntity(AdminIntentionPartnerData data){

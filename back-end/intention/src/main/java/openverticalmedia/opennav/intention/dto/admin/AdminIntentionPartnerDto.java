@@ -6,4 +6,5 @@ import lombok.Data;
 public class AdminIntentionPartnerDto {
     private long id;
     private String name;
+    private String telephone;
 }

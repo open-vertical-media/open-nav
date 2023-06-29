@@ -1,5 +1,6 @@
 package openverticalmedia.opennav.intention.service.admin;
 
+import cn.hutool.core.util.StrUtil;
 import openverticalmedia.opennav.intention.mapper.admin.AdminIntentionPartnerMapper;
 import openverticalmedia.opennav.intention.repository.IntentionPartnerRepository;
 import openverticalmedia.opennav.common.exception.NotFoundException;
@@ -20,9 +21,14 @@ import java.util.stream.Collectors;
 public class AdminIntentionPartnerService {
     @Autowired
     IntentionPartnerRepository repository;
-    public Pager<AdminIntentionPartnerDto> query(String name, int size, int page){
-        Pager<AdminIntentionPartnerDto> result=new Pager<>();
-        Page<IntentionPartnerEntity> entityPage = repository.findAllByNameLike(name, PageRequest.of(page - 1, size));
+    public Pager<AdminIntentionPartnerDto> query(String name, int size, int page) {
+        Pager<AdminIntentionPartnerDto> result = new Pager<>();
+        Page<IntentionPartnerEntity> entityPage;
+        if (StrUtil.isNotBlank(name)) {
+            entityPage = repository.findAllByNameLike(name, PageRequest.of(page - 1, size));
+        } else {
+            entityPage = repository.findAll(PageRequest.of(page - 1, size));
+        }
         result.setCount(entityPage.getTotalElements());
         List<AdminIntentionPartnerDto> list = entityPage.stream()
                 .map(AdminIntentionPartnerMapper::entityToDto)
