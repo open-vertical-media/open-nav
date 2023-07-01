@@ -10,6 +10,7 @@ public class AdminAuthAccountMapper {
         dto.setName(entity.getName());
         dto.setPassword(entity.getPassword());
         dto.setId(entity.getId());
+        dto.setPowers(entity.getPowers());
         return dto;
     }
     public static  AccountEntity dataToEntity(AdminAuthAccountData data){
