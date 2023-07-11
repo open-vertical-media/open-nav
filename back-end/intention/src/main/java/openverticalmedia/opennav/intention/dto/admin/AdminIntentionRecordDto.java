@@ -1,6 +1,9 @@
 package openverticalmedia.opennav.intention.dto.admin;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
+
+import java.sql.Timestamp;
 
 @Data
 public class AdminIntentionRecordDto {
@@ -24,4 +27,10 @@ public class AdminIntentionRecordDto {
      * 状态
      */
     private String status;
+    @JsonFormat(pattern = "yyyy-MM-dd hh:mm:ss",timezone = "GMT+8")
+    private Timestamp time;
+    /**
+     * 备注
+     */
+    private String remark;
 }

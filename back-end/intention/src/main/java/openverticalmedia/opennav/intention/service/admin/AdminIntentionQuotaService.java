@@ -11,6 +11,7 @@ import openverticalmedia.opennav.common.model.Pager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -27,7 +28,8 @@ public class AdminIntentionQuotaService {
     public Pager<AdminIntentionQuotaDto> query(int page,
                                                int size) {
         Pager<AdminIntentionQuotaDto> result = new Pager<>();
-        Page<IntentionQuotaEntity> entityPage = repository.findAll(PageRequest.of(page - 1, size));
+        PageRequest pageRequest = PageRequest.of(page - 1, size, Sort.by(Sort.Direction.DESC,"id"));
+        Page<IntentionQuotaEntity> entityPage = repository.findAll(pageRequest);
         result.setCount(entityPage.getTotalElements());
         List<AdminIntentionQuotaDto> list = entityPage.stream()
                 .map(AdminIntentionQuotaMapper::entityToDto)

@@ -27,6 +27,7 @@
         <module>auth</module>
         <module>safe</module>
         <module>config</module>
+        <module>advert</module>
     </modules>
     <dependencies>
 

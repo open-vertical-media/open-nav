@@ -14,4 +14,6 @@ public interface AccountRepository extends JpaRepository<AccountEntity,Long> {
     Optional<AccountEntity> findByNameAndPassword(String name, String password);
     @Query("select a from AccountEntity a where ?1 is null or a.name like concat('%',?1,'%')")
     Page<AccountEntity> query(String name,Pageable pageable);
+
+    boolean existsByName(String name);
 }

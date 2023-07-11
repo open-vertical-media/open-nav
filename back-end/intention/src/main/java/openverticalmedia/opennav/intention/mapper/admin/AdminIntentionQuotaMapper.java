@@ -16,6 +16,7 @@ public class AdminIntentionQuotaMapper {
             dto.setPartnerId(partner.getId());
             dto.setPartnerName(partner.getName());
         }
+        dto.setTime(entity.getCreateTime());
         return dto;
     }
     public static IntentionQuotaEntity dataToEntity(AdminIntentionQuotaData data){

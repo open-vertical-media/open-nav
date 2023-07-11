@@ -45,4 +45,5 @@ public class IntentionRecordEntity extends IntentionEntity {
      *
      */
     private Long partnerId;
+    private String remark;
 }

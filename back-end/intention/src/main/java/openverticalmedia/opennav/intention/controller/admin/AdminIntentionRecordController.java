@@ -2,11 +2,11 @@ package openverticalmedia.opennav.intention.controller.admin;
 
 import openverticalmedia.opennav.common.annotation.AdminController;
 import openverticalmedia.opennav.intention.dto.admin.AdminIntentionRecordDto;
+import openverticalmedia.opennav.intention.dto.admin.AdminIntentionRecordPart;
 import openverticalmedia.opennav.intention.service.admin.AdminIntentionRecordService;
 import openverticalmedia.opennav.common.model.Pager;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @AdminController("admin/intention/record")
 public class AdminIntentionRecordController {
@@ -20,5 +20,9 @@ public class AdminIntentionRecordController {
                                                 @RequestParam(required = false, defaultValue = "1") int page,
                                                 @RequestParam(required = false, defaultValue = "20") int size) {
         return service.query(partnerId, name, telephone, page, size);
+    }
+    @PatchMapping("{id}")
+    public boolean patch(@PathVariable long id, @RequestBody AdminIntentionRecordPart part){
+        return service.patch(id,part);
     }
 }

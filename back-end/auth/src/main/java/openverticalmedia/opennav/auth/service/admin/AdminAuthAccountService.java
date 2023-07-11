@@ -5,11 +5,13 @@ import openverticalmedia.opennav.auth.entity.AccountEntity;
 import openverticalmedia.opennav.auth.dto.admin.AdminAuthAccountData;
 import openverticalmedia.opennav.auth.mapper.admin.AdminAuthAccountMapper;
 import openverticalmedia.opennav.auth.repository.AccountRepository;
+import openverticalmedia.opennav.common.exception.ExistsException;
 import openverticalmedia.opennav.common.exception.NotFoundException;
 import openverticalmedia.opennav.common.model.Pager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,7 +25,8 @@ public class AdminAuthAccountService {
 
     public Pager<AdminAuthAccountDto> query(String name, int page, int size) {
         Pager<AdminAuthAccountDto> result = new Pager<>();
-        Page<AccountEntity> entityPage = repository.query(name, PageRequest.of(page - 1, size));
+        PageRequest pageRequest = PageRequest.of(page - 1, size, Sort.by(Sort.Direction.DESC,"id"));
+        Page<AccountEntity> entityPage = repository.query(name, pageRequest);
         result.setCount(entityPage.getTotalElements());
         List<AdminAuthAccountDto> list = entityPage.stream()
                 .map(AdminAuthAccountMapper::entityToDto)
@@ -50,7 +53,10 @@ public class AdminAuthAccountService {
     }
 
     public long post(AdminAuthAccountData data) {
-        //內存筛选
+        boolean existsName = repository.existsByName(data.getName());
+        if(existsName){
+            throw new ExistsException("账号名已存在");
+        }
         AccountEntity entity = AdminAuthAccountMapper.dataToEntity(data);
         entity = repository.save(entity);
         return entity.getId();

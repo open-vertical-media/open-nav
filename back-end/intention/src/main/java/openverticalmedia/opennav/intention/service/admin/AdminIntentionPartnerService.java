@@ -11,6 +11,7 @@ import openverticalmedia.opennav.common.model.Pager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -24,10 +25,11 @@ public class AdminIntentionPartnerService {
     public Pager<AdminIntentionPartnerDto> query(String name, int size, int page) {
         Pager<AdminIntentionPartnerDto> result = new Pager<>();
         Page<IntentionPartnerEntity> entityPage;
+        PageRequest pageRequest = PageRequest.of(page - 1, size, Sort.by(Sort.Direction.DESC,"id"));
         if (StrUtil.isNotBlank(name)) {
-            entityPage = repository.findAllByNameLike(name, PageRequest.of(page - 1, size));
+            entityPage = repository.findAllByNameLike(name,pageRequest );
         } else {
-            entityPage = repository.findAll(PageRequest.of(page - 1, size));
+            entityPage = repository.findAll(pageRequest);
         }
         result.setCount(entityPage.getTotalElements());
         List<AdminIntentionPartnerDto> list = entityPage.stream()

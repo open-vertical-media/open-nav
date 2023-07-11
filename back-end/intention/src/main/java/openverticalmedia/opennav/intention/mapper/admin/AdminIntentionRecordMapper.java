@@ -11,6 +11,8 @@ public class AdminIntentionRecordMapper {
         dto.setPath(entity.getPath());
         dto.setStatus(entity.getStatus());
         dto.setTelephone(entity.getTelephone());
+        dto.setTime(entity.getCreateTime());
+        dto.setRemark(entity.getRemark());
         return dto;
     }
 }
