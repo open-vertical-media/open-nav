@@ -13,9 +13,4 @@ import java.beans.Transient;
 @Repository
 public interface IntentionPartnerRepository extends JpaRepository<IntentionPartnerEntity,Long> {
     Page<IntentionPartnerEntity> findAllByNameLike(String name, Pageable pageable);
-
-    @Transient
-    @Modifying
-    @Query("update IntentionPartnerEntity set quota=quota+?2 where id=?1")
-    void syncQuota(long id, int number);
 }

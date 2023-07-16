@@ -7,6 +7,7 @@ import java.sql.Timestamp;
 
 @Data
 public class AdminIntentionRecordDto {
+    private long id;
     /**
      * 名称
      */

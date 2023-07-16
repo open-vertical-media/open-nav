@@ -38,6 +38,7 @@ public class AdminIntentionRecordService {
             IntentionRecordEntity entity = entityOptional.get();
             entity.setRemark(part.getRemark());
             repository.save(entity);
+            return true;
         }
         return false;
     }

@@ -22,7 +22,7 @@ public class AjaxAdvertScheduleService {
         return entityList.stream()
                 .filter(e -> ReUtil.isMatch(e.getUrl(), data.getUrl()))
                 .sorted(Comparator.comparing(ScheduleEntity::getBlockIndex))
-                .map(AdvertScheduleMapper::entityToDto)
+                .map(AdvertScheduleMapper::entityToAjax)
                 .collect(Collectors.toList());
     }
 }

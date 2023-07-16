@@ -7,6 +7,7 @@ public class AdminIntentionRecordMapper {
     public static AdminIntentionRecordDto entityToDto(IntentionRecordEntity entity){
         AdminIntentionRecordDto dto=new AdminIntentionRecordDto();
         dto.setMessage(entity.getMessage());
+        dto.setId(entity.getId());
         dto.setName(entity.getName());
         dto.setPath(entity.getPath());
         dto.setStatus(entity.getStatus());
