@@ -1,9 +1,9 @@
-package openverticalmedia.opennav.sdk.config;
+package openverticalmedia.opennav.sdk.code;
 
 import lombok.Data;
 
 @Data
-public class SdkCodeProperties {
+public class CodeProperties {
 
     private String codeRegionId;
     private String codeAccessKeyId;

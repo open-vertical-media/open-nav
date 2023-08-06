@@ -5,16 +5,15 @@ import com.aliyun.dysmsapi20170525.Client;
 import com.aliyun.dysmsapi20170525.models.SendSmsRequest;
 import com.aliyun.dysmsapi20170525.models.SendSmsResponse;
 import lombok.extern.slf4j.Slf4j;
-import openverticalmedia.opennav.sdk.config.SdkSmsProperties;
 
 import java.util.Map;
 
 @Slf4j
 public class SmsTemplate {
     final Client client;
-    final SdkSmsProperties properties;
+    final SmsProperties properties;
 
-    public SmsTemplate(Client client, SdkSmsProperties properties) {
+    public SmsTemplate(Client client, SmsProperties properties) {
         this.client = client;
         this.properties = properties;
     }

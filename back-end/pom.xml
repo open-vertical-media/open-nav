@@ -28,6 +28,7 @@
         <module>safe</module>
         <module>config</module>
         <module>advert</module>
+        <module>file</module>
     </modules>
     <dependencies>
 

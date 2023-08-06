@@ -9,38 +9,20 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
     <groupId>open-vertical-media.open-nav</groupId>
-    <artifactId>sdk</artifactId>
+    <artifactId>file</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>sdk</name>
-    <description>sdk</description>
-
+    <name>file</name>
+    <description>file</description>
     <dependencies>
-        <dependency>
-            <groupId>com.aliyun</groupId>
-            <artifactId>dysmsapi20170525</artifactId>
-            <version>2.0.23</version>
-        </dependency>
+
         <dependency>
             <groupId>open-vertical-media.open-nav</groupId>
-            <artifactId>config</artifactId>
+            <artifactId>common</artifactId>
             <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.aliyun</groupId>
-            <artifactId>aliyun-java-sdk-core</artifactId>
-            <version>4.5.13</version>
-        </dependency>
-        <dependency>
-            <groupId>com.aliyun</groupId>
-            <artifactId>aliyun-java-sdk-afs</artifactId>
-            <version>1.0.1</version>
-        </dependency>
-        <dependency>
-            <groupId>com.aliyun.oss</groupId>
-            <artifactId>aliyun-sdk-oss</artifactId>
-            <version>3.17.1</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
+
 
     <build>
         <plugins>
