@@ -28,10 +28,6 @@ public class ResourceProperties {
      */
     private String domain;
     /**
-     * 存储根路径
-     */
-    private String rootDir;
-    /**
      * 区域id
      */
     private String regionId;

@@ -14,12 +14,16 @@
     <name>file</name>
     <description>file</description>
     <dependencies>
-
         <dependency>
             <groupId>open-vertical-media.open-nav</groupId>
             <artifactId>common</artifactId>
             <version>0.0.1-SNAPSHOT</version>
             <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>open-vertical-media.open-nav</groupId>
+            <artifactId>sdk</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
 

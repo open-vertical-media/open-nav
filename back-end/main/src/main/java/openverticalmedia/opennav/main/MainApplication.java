@@ -1,6 +1,7 @@
 package openverticalmedia.opennav.main;
 
 import openverticalmedia.opennav.auth.EnableOpenNavAuth;
+import openverticalmedia.opennav.file.EnableOpenNavFile;
 import openverticalmedia.opennav.intention.EnableOpenNavIntention;
 import openverticalmedia.opennav.main.config.WebProperties;
 import openverticalmedia.opennav.safe.EnableOpenNavSafe;
@@ -17,6 +18,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @EnableOpenNavAuth
 @EnableOpenNavSdk
 @EnableOpenNavSafe
+@EnableOpenNavFile
 @EnableOpenNavIntention
 @EnableConfigurationProperties(WebProperties.class)
 @SpringBootApplication(scanBasePackages = "openverticalmedia.opennav")
