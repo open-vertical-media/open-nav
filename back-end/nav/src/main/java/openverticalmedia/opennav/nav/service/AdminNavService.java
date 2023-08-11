@@ -1,4 +1,4 @@
 package openverticalmedia.opennav.nav.service;
 
-public class AdminService {
+public class AdminNavService {
 }

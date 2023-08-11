@@ -8,7 +8,6 @@ public class ResourceResponseModel {
     private String accessId;
     private String key;
     private int expire;
-    private String fileName;
     private String policy;
     private String signature;
 }
