@@ -11,7 +11,6 @@ public class AdminFileResourceService {
     @Autowired
     ResourceTemplate template;
     public ResourceResponseModel auth(ResourceRequestModel request) {
-        //TODO SCENE选定策略
         return template.auth(request);
     }
 }

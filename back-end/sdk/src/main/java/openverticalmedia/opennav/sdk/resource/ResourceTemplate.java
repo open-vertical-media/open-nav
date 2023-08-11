@@ -2,8 +2,8 @@ package openverticalmedia.opennav.sdk.resource;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.io.FileUtil;
+import cn.hutool.core.util.ArrayUtil;
 import cn.hutool.core.util.StrUtil;
-import cn.hutool.json.JSONUtil;
 import com.aliyun.oss.OSSClient;
 import com.aliyun.oss.common.utils.BinaryUtil;
 import com.aliyun.oss.model.MatchMode;
@@ -13,7 +13,6 @@ import openverticalmedia.opennav.common.exception.LogicException;
 import java.nio.charset.Charset;
 import java.util.Date;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class ResourceTemplate {
     private final OSSClient ossClient;
@@ -48,7 +47,7 @@ public class ResourceTemplate {
         ResourceResponseModel result = new ResourceResponseModel();
         PolicyConditions policy = new PolicyConditions();
         if (CollUtil.isNotEmpty(allowTypes)) {
-            policy.addConditionItem(MatchMode.In, PolicyConditions.COND_CONTENT_TYPE, JSONUtil.toJsonStr(allowTypes));
+            policy.addConditionItem(MatchMode.In, PolicyConditions.COND_CONTENT_TYPE, ArrayUtil.toArray(allowTypes,String.class));
         }
         policy.addConditionItem(PolicyConditions.COND_CONTENT_LENGTH_RANGE, 0, fileSize);
         String filePath = directory + request.getFileName();
