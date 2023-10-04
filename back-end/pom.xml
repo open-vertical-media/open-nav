@@ -29,6 +29,8 @@
         <module>config</module>
         <module>advert</module>
         <module>file</module>
+        <module>spider</module>
+        <module>task</module>
     </modules>
     <dependencies>
 

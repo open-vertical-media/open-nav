@@ -8,7 +8,7 @@ import java.util.Map;
 @Data
 public class ResourceProperties {
     /**
-     * endpoint 外网
+     * endpoint 内网
      */
     private String endpoint;
     /**
@@ -20,17 +20,9 @@ public class ResourceProperties {
      */
     private String accessKeySecret;
     /**
-     * BUCKET_NAME
+     * BUCKET域名
      */
-    private String bucketName;
-    /**
-     * 域名
-     */
-    private String domain;
-    /**
-     * 区域id
-     */
-    private String regionId;
+    private String bucket;
     /**
      * 应用场景
      */

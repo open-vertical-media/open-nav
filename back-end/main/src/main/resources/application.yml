@@ -1,0 +1,13 @@
+opennav:
+  auth:
+    adminSalt: open-nav-admin
+    ajaxSalt: open-nav-ajax
+    partnerSalt: open-nav-partner
+  safe:
+    smsTemplateCode: smsTemplateCode
+  web:
+    staticHost: github.com
+    host: github.com
+  spider:
+    keywords:
+      + 鸽

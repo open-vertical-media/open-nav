@@ -63,7 +63,7 @@ public class ResourceTemplate {
         result.setPolicy(encodePolicy);
         result.setSignature(postSignature);
         result.setKey(filePath);
-        result.setEndpoint(properties.getEndpoint());
+        result.setEndpoint(properties.getBucket());
         result.setExpire(expire);
         return result;
     }
