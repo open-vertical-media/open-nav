@@ -1,5 +1,6 @@
 package openverticalmedia.opennav.spider.manager;
 
+import cn.hutool.core.util.StrUtil;
 import cn.hutool.core.util.URLUtil;
 import cn.hutool.http.HttpUtil;
 import openverticalmedia.opennav.spider.mapper.DocumentBuilder;
@@ -18,7 +19,9 @@ import java.util.stream.Collectors;
 public class SpiderManager {
     @Autowired
     SiteMapper siteMapper;
+
     public DocumentModel get(String url) {
+        //TODO Html乱码问题
         String html = HttpUtil.get(url, 5000);
         Document document = Jsoup.parse(html);
         DocumentBuilder builder = DocumentBuilder.builder();
@@ -26,9 +29,10 @@ public class SpiderManager {
         String domain = URLUtil.getHost(URLUtil.url(url)).getHost();
         builder.domain(domain);
         builder.title(document.title());
+        //TODO 相对链接问题
         List<LinkModel> links = document.getElementsByTag("a")
                 .stream()
-                .filter(a -> a.hasAttr("href"))
+                .filter(a -> a.hasAttr("href") && StrUtil.isNotBlank(a.attributes().get("href")))
                 .map(siteMapper::nodeToModel)
                 .collect(Collectors.toList());
 
@@ -41,9 +45,9 @@ public class SpiderManager {
         List<LinkModel> pages = links
                 .stream()
                 .filter(
-                    h -> URLUtil.url(h.getDomain()).getHost().equals(domain)||
+                        h -> URLUtil.url(h.getDomain()).getHost().equals(domain) ||
                         h.getDomain().startsWith("/")
-                    )
+                )
                 .collect(Collectors.toList());
         builder.pages(pages);
 

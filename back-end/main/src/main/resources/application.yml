@@ -10,4 +10,4 @@ opennav:
     host: github.com
   spider:
     keywords:
-      + 鸽
+      - 鸽

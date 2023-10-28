@@ -1,6 +1,8 @@
 package openverticalmedia.opennav.spider.service;
 
+import cn.hutool.core.collection.CollUtil;
 import cn.hutool.json.JSONUtil;
+import lombok.extern.slf4j.Slf4j;
 import openverticalmedia.opennav.sdk.task.TaskModel;
 import openverticalmedia.opennav.sdk.task.TaskTemplate;
 import openverticalmedia.opennav.spider.config.SpiderProperties;
@@ -21,6 +23,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+@Slf4j
 @Service
 public class SpiderTaskService {
     @Autowired
@@ -42,20 +45,33 @@ public class SpiderTaskService {
         //先处理Page 后处理Site
         SpiderTaskModel model = JSONUtil.toBean(param, SpiderTaskModel.class);
         DocumentModel documentModel = spiderManager.get(model.getUrl());
+        //不包含关键词 直接退出
+        boolean exists = true;
+        if (CollUtil.isNotEmpty(properties.getKeywords())) {
+            exists = properties.getKeywords().stream().anyMatch(k -> documentModel.getBody().contains(k));
+        }
         long id = model.getId();
         long siteId = 0;
         if ("Site".equals(model.getType())) {
             SpiderSiteEntity entity = siteRepository.findById(id).get();
             entity = mapper.modelFillEntity(entity, documentModel);
-            entity.setStatus("Loading");
+            if (exists) {
+                entity.setStatus("Success");
+            } else {
+                entity.setStatus("Failed");
+            }
             siteRepository.saveAndFlush(entity);
             siteId = id;
         } else if ("Page".equals(model.getType())) {
             SpiderPageEntity page = pageRepository.findById(id).get();
             siteId = page.getSiteId();
         }
-        newSites(siteId, model.getUrl(), documentModel.getSites());
-        newPages(siteId,documentModel.getPages());
+        if(exists) {
+            log.trace("sites:{}",documentModel.getSites().size());
+            newSites(siteId, model.getUrl(), documentModel.getSites());
+            log.trace("pages:{}",documentModel.getPages().size());
+            newPages(siteId, documentModel.getPages());
+        }
     }
 
     private void newPages(long sieId, List<LinkModel> links) {

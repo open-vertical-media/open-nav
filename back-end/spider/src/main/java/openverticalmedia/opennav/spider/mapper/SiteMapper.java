@@ -29,11 +29,13 @@ public class SiteMapper {
     public LinkModel nodeToModel(Element element) {
         LinkModel linkModel = new LinkModel();
         linkModel.setUrl(element.attributes().get("href"));
-        linkModel.setName(element.text());
+        String text = element.text();
+        text = text.length() > 500 ? text.substring(0, 500) : text;
+        linkModel.setName(text);
         String domain = URLUtil.url(linkModel.getUrl()).getHost();
-        List<String> urls = StrUtil.split(domain, '.');
-        urls = urls.size() > 2 ? ListUtil.sub(urls, urls.size() - 2, urls.size()) : urls;
-        domain = StrUtil.join(".", urls);
+//        List<String> urls = StrUtil.split(domain, '.');
+//        urls = urls.size() > 2 ? ListUtil.sub(urls, urls.size() - 2, urls.size()) : urls;
+//        domain = StrUtil.join(".", urls);
         linkModel.setDomain(domain);
         return linkModel;
     }
